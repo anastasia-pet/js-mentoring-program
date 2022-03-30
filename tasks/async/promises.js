@@ -14,8 +14,12 @@ const {
  */
 
 function promiseResolve() {
-	//PLACE YOUR CODE HERE:
+	return new Promise((resolve) => {
+		resolve ("Resolved!");
+})
 }
+console.log(promiseResolve)
+
 
 /**
  * Task-2: Create a promise with the reject state
@@ -25,8 +29,13 @@ function promiseResolve() {
  */
 
 function promiseReject() {
-	//PLACE YOUR CODE HERE:
-}
+	 
+		return new Promise((reject) => {
+			reject("Rejected!");
+	})
+	}
+	console.log(promiseReject)
+
 
 /**
  * Task-3: Create a promise with both resolve and reject states
@@ -35,8 +44,16 @@ function promiseReject() {
  */
 
 function fullPromise(param) {
-	//PLACE YOUR CODE HERE:
-}
+	
+		return new Promise((resolve, reject) => {
+			if (param === true) {
+				resolve ("Resolved!");
+			}
+			reject ("Rejected!");
+	})
+	}
+	console.log(fullPromise)
+
 
 /**
  * Task-4: Chain two promises (firstPromise() and secondPromise()
@@ -48,8 +65,11 @@ function fullPromise(param) {
 let chainingResult = '';
 
 async function promisesChaining() {
-	//PLACE YOUR CODE HERE:
-}
+
+    return Promise.all([firstPromise(),secondPromise()]).then(value => value.join (' '))
+	
+	} 
+
 
 
 /**
@@ -61,8 +81,11 @@ async function promisesChaining() {
  */
 
 async function getAnimals() {
-	//PLACE YOUR CODE HERE:
+return Promise.all ([getDogs(), getCats(), getBirds()]).then (value => value);
+	
 }
+
+
 
 module.exports = {
 	promiseResolve,
