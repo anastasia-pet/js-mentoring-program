@@ -22,10 +22,27 @@
  * 2. Check yourself by running "npm run test:nodejs"
  */
 const fs = require('fs');
+const data = require ('./test.json')
 
-const jsonParser = () => {
+
+const jsonParser = () => { 
+	
+const converted = data.list.entries.map(entry => {
+	const name = entry.entry.name.replace('.html', ''); 
+	return {
+		docId: `http://doc.epam.com/${name}`
+	}
+});
+	
+	fs.writeFileSync ('./tasks/nodeJs/parser/parsed.json', JSON.stringify(converted, null, '\t'), error => {
+		if (error) throw error;
+	});
+
+	
 
 };
+
+
 
 module.exports = {
 	jsonParser
