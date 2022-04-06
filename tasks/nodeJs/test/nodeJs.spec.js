@@ -14,7 +14,7 @@ describe('Fetch method', () => {
     });
 
     beforeEach(() => responseJson = require('../fetch/response.json'));
-
+console.log (responseJson);
     it('should receive items', () => {
         responseJson
             .forEach(item => expect(typeof item).to.be.equal('object'));
