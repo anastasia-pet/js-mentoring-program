@@ -22,8 +22,15 @@ const {
  * 
  */
 async function asyncPromiseResolve() {
-  //PLACE YOUR CODE HERE:
-}
+  
+    const result = await promiseResolve();
+    
+    return result + " " + "with async await";
+    
+    }
+
+
+
 
 /**
  * TASK-2: Reject the created earlier promiseReject() promise
@@ -32,7 +39,9 @@ async function asyncPromiseResolve() {
  * @returns {Promise<"Rejected! with async await">}
  */
 async function asyncPromiseReject() {
-  //PLACE YOUR CODE HERE:
+  const result = await promiseReject();
+    
+    return result + " " + "with async await";
 }
 
 /**
@@ -42,7 +51,14 @@ async function asyncPromiseReject() {
  * @returns 
  */
 async function asyncPromiseAll() {
-  //PLACE YOUR CODE HERE:
+  let result = await Promise.all([
+    getDogs(), 
+    getCats(), 
+    getBirds()
+  
+  ]);
+  return result;
+
 }
 
 module.exports = {
