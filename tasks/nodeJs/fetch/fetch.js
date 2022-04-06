@@ -16,13 +16,29 @@
  */
 const fetch = require('node-fetch');
 const fs = require('fs/promises');
+const { json } = require('mocha/lib/reporters');
 
 /**
  * Run fetch method inside the function
  * Use the fs.writeFile method inside the function
  */
 const sendRequest = async () => {
+	const response =  await fetch ('https://jsonplaceholder.typicode.com/posts', {
+		method: "GET",
+	    
+	});
+	const json = await response.json ();
+	console.log (json);
+const status = response.status;
+if (status === 200) {
+	
+	
+	const filteredResponse = json.filter (item => item.id <20);
+	const data = JSON.stringify (filteredResponse);
+	await fs.writeFile ('./tasks/nodeJs/fetch/response.json', data);
+}
 
+console.log (response);
 };
 
 
